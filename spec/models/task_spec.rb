@@ -12,7 +12,7 @@ RSpec.describe Task, type: :model do
   end
 
   it "is done with process complete method" do
-    task = build(:task)
+    task = FactoryGirl.create(:task, done: false)
     task.complete
     expect(task.done).to be_truthy
   end

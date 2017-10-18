@@ -41,6 +41,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   # Use FactoryGirl
   gem 'factory_girl_rails'
+  # Use Capybara
+  gem 'capybara'
 end
 
 group :development do

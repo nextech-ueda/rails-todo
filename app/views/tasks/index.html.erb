@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tasks</h1>
+
+<h2>Incomplete</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @incomplete_tasks.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td>
+          <%= form_with(model: task, local: true, url: done_task_path(task), method: :patch) do |f| %>
+            <%= f.submit 'done' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Done</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @done_tasks.each do |task| %>
+    <tr>
+      <td><%= task.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Task', new_task_path %>
